@@ -23,6 +23,10 @@ const categoryTotals = document.querySelector("#category-totals");
 const emptyMessage = document.querySelector("#empty-message");
 const expenseList = document.querySelector("#expense-list");
 
+const convertBtn = document.querySelector("#convert-btn");
+const convertedTotal = document.querySelector("#converted-total");
+const conversionError = document.querySelector("#conversion-error");
+
 function getToday() {
   return new Date().toISOString().slice(0, 10);
 }
@@ -231,4 +235,59 @@ sortSelect.addEventListener("change", () => {
 });
 
 dateInput.value = getToday();
+render();
+
+function formatEUR(amount) {
+  return "€" + amount.toFixed(2);
+}
+
+async function convertToEUR() {
+  const visibleExpenses = getVisibleExpenses();
+  const total = getTotal(visibleExpenses);
+
+  convertedTotal.textContent = "";
+  conversionError.textContent = "";
+
+  if (total === 0) {
+    conversionError.textContent = "Add an expense before converting.";
+    return;
+  }
+
+  convertBtn.disabled = true;
+  convertBtn.textContent = "Converting...";
+
+  try {
+    const response = await fetch("https://open.er-api.com/v6/latest/USD");
+
+    if (!response.ok) {
+      conversionError.textContent = "The exchange rate request failed.";
+      return;
+    }
+
+    const data = await response.json();
+    const rate = data.rates.EUR;
+
+    if (rate === undefined) {
+      conversionError.textContent = "The EUR exchange rate was not found.";
+      return;
+    }
+
+    const eurTotal = total * rate;
+    convertedTotal.textContent = "EUR total: " + formatEUR(eurTotal);
+  } catch {
+    conversionError.textContent = "Could not convert right now. Please try again.";
+  } finally {
+    convertBtn.disabled = false;
+    convertBtn.textContent = "Convert to EUR";
+  }
+}
+
+convertBtn.addEventListener("click", convertToEUR);
+
+function clearConversion() {
+  convertedTotal.textContent = "";
+  conversionError.textContent = "";
+}
+
+clearConversion();
 render();
