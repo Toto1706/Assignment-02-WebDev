@@ -141,22 +141,53 @@ body {
 
 /* ---------- Expense list ---------- */
 
-.expenses-table {
-  width: 100%;
-  border-collapse: collapse;
+#expense-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.expenses-table th,
-.expenses-table td {
-  padding: 0.6rem;
-  border-bottom: 1px solid #e0e0e0;
-  text-align: left;
+.expense {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  background: #fff;
 }
 
-.expenses-table th {
-  color: #666;
-  font-size: 0.9rem;
+.expense .category {
+  font-size: 0.75rem;
   font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  color: #fff;
+  background: #607d8b;
+}
+
+.expense .description {
+  flex: 1;
+}
+
+.expense .amount,
+.expense .date {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.expense .delete-btn {
+  background: none;
+  border: none;
+  color: #c62828;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 0.25rem;
+}
+
+.expense .delete-btn:hover {
+  color: #8e0000;
 }
 
 /* ---------- Messages ---------- */
