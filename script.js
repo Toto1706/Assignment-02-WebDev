@@ -273,6 +273,7 @@ function handleAddExpense(event) {
   // Update state, save it, and re-render the page.
   expenses.push(newExpense);
   saveExpenses();
+  clearConversion();
   render();
 
   // Reset the form and put today's date back into the date input.
@@ -287,6 +288,7 @@ function deleteExpense(id) {
   });
 
   saveExpenses();
+  clearConversion();
   render();
 }
 
@@ -344,11 +346,13 @@ expenseForm.addEventListener("submit", handleAddExpense);
 
 filterCategory.addEventListener("change", () => {
   currentFilter = filterCategory.value;
+  clearConversion();
   render();
 });
 
 sortSelect.addEventListener("change", () => {
   currentSort = sortSelect.value;
+  clearConversion();
   render();
 });
 
