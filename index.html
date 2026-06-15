@@ -3,21 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <title>Expense Tracker</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
 
   <body>
+    <!-- Page header: app title and short description -->
     <header class="app-header">
       <h1>Expense Tracker</h1>
       <p id="summary">Track your spending by amount, category, and date.</p>
     </header>
 
     <main>
+      <!-- Form section: users enter one new expense -->
       <section class="add-expense-section">
         <h2 id="add-expense-heading">Add an Expense</h2>
 
         <form id="expense-form" class="expense-form">
+          <!-- One form-group = one label + one input control -->
           <div class="form-group">
             <label for="description-input">Description</label>
             <input
@@ -59,10 +62,12 @@
 
           <button type="submit">Add Expense</button>
 
+          <!-- JavaScript writes validation errors here -->
           <p id="form-error" class="error-message" role="alert"></p>
         </form>
       </section>
 
+      <!-- Controls section: choose filters and sorting options -->
       <section class="controls-section">
         <h2 id="controls-heading">Filter and Sort</h2>
 
@@ -91,6 +96,7 @@
         </div>
       </section>
 
+      <!-- Summary section: totals and counts will update after JS is added -->
       <section class="summary-section">
         <h2 id="summary-heading">Summary</h2>
 
@@ -115,6 +121,7 @@
         </div>
       </section>
 
+      <!-- Expense output section: JavaScript will render list items here -->
       <section class="expenses-section">
         <h2 id="expenses-heading">Expenses</h2>
 
@@ -128,6 +135,7 @@
       </section>
     </main>
 
+    <!-- Footer with course/project info -->
     <footer class="app-footer">
       <p>CSCI 39548 Assignment 2 - Soogeun Kim</p>
     </footer>
