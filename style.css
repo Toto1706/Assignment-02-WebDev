@@ -1,0 +1,179 @@
+/* Expense Tracker stylesheet — based directly on the JS snapshots. */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 640px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: #222;
+  line-height: 1.5;
+}
+
+.app-header h1 {
+  margin-bottom: 0.25rem;
+}
+
+.app-header p {
+  color: #666;
+  margin-top: 0;
+}
+
+/* ---------- Accessibility ---------- */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Form ---------- */
+
+#expense-form {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+#expense-form input,
+#expense-form select,
+#expense-form button,
+.controls select,
+#convert-btn {
+  padding: 0.5rem 0.75rem;
+  font: inherit;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+}
+
+#amount-input {
+  width: 5rem;
+}
+
+#date-input {
+  width: 9rem;
+}
+
+#expense-form button,
+#convert-btn {
+  background: #1976d2;
+  color: white;
+  border-color: #1976d2;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#expense-form button:hover,
+#convert-btn:hover {
+  background: #1565c0;
+}
+
+#convert-btn:disabled {
+  background: #999;
+  border-color: #999;
+  cursor: not-allowed;
+}
+
+/* ---------- Controls ---------- */
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.controls .form-group {
+  min-width: 220px;
+  flex: 1;
+}
+
+/* ---------- Totals ---------- */
+
+.summary-section {
+  margin-bottom: 1rem;
+}
+
+#total-amount {
+  font-weight: 700;
+}
+
+.summary-cards {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin-bottom: 1rem;
+}
+
+.summary-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 0.75rem;
+  background: #fff;
+}
+
+#category-totals {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+  color: #666;
+}
+
+#category-totals li {
+  margin-bottom: 0.25rem;
+}
+
+/* ---------- Expense list ---------- */
+
+.expenses-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.expenses-table th,
+.expenses-table td {
+  padding: 0.6rem;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+.expenses-table th {
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* ---------- Messages ---------- */
+
+.error-message {
+  color: #c62828;
+  font-weight: 600;
+}
+
+#empty-message,
+#converted-total {
+  color: #666;
+  margin-top: 0;
+}
+
+.app-footer {
+  margin-top: 2rem;
+  color: #888;
+  font-size: 0.9rem;
+}
