@@ -1,5 +1,3 @@
-const STORAGE_KEY = "expenses";
-
 // Expense Tracker — Assignment 2
 // This file holds all of the app behavior: state, rendering, events,
 // localStorage persistence, and the async currency conversion request.
