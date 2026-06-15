@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <title>Expense Tracker</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
 
   <body>
     <header class="app-header">
       <h1>Expense Tracker</h1>
-      <p>Track your spending by amount, category, and date.</p>
+      <p id="summary">Track your spending by amount, category, and date.</p>
     </header>
 
     <main>
@@ -70,7 +70,7 @@
           <div class="form-group">
             <label for="filter-category">Filter by Category</label>
             <select id="filter-category">
-              <option value="All">All</option>
+              <option value="All">All Categories</option>
               <option value="Food">Food</option>
               <option value="Transport">Transport</option>
               <option value="Entertainment">Entertainment</option>
@@ -122,21 +122,9 @@
           No expenses to show yet.
         </p>
 
-        <table class="expenses-table">
-          <thead>
-            <tr>
-              <th>Description</th>
-              <th>Amount</th>
-              <th>Category</th>
-              <th>Date</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-
-          <tbody id="expense-table-body">
-            <!-- JavaScript renders expense rows here -->
-          </tbody>
-        </table>
+        <ul id="expense-list">
+          <!-- JavaScript renders expense items here -->
+        </ul>
       </section>
     </main>
 
