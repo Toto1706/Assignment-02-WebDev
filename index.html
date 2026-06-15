@@ -12,3 +12,136 @@
       <h1>Expense Tracker</h1>
       <p>Track your spending by amount, category, and date.</p>
     </header>
+
+    <main>
+      <section class="add-expense-section">
+        <h2 id="add-expense-heading">Add an Expense</h2>
+
+        <form id="expense-form" class="expense-form">
+          <div class="form-group">
+            <label for="description-input">Description</label>
+            <input
+              id="description-input"
+              name="description"
+              type="text"
+              autocomplete="off"
+              placeholder="Example: Lunch"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="amount-input">Amount</label>
+            <input
+              id="amount-input"
+              name="amount"
+              type="number"
+              min="0"
+              step="0.01"
+              placeholder="12.50"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="category-input">Category</label>
+            <select id="category-input" name="category">
+              <option value="Food">Food</option>
+              <option value="Transport">Transport</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="School">School</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="date-input">Date</label>
+            <input id="date-input" name="date" type="date" />
+          </div>
+
+          <button type="submit">Add Expense</button>
+
+          <p id="form-error" class="error-message" role="alert"></p>
+        </form>
+      </section>
+
+      <section class="controls-section">
+        <h2 id="controls-heading">Filter and Sort</h2>
+
+        <div class="controls">
+          <div class="form-group">
+            <label for="filter-category">Filter by Category</label>
+            <select id="filter-category">
+              <option value="All">All</option>
+              <option value="Food">Food</option>
+              <option value="Transport">Transport</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="School">School</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="sort-select">Sort Expenses</label>
+            <select id="sort-select">
+              <option value="date-desc">Date: Newest First</option>
+              <option value="date-asc">Date: Oldest First</option>
+              <option value="amount-desc">Amount: High to Low</option>
+              <option value="amount-asc">Amount: Low to High</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="summary-section">
+        <h2 id="summary-heading">Summary</h2>
+
+        <div class="summary-cards">
+          <article class="summary-card">
+            <h3>Total</h3>
+            <p id="total-amount">$0.00</p>
+            <button id="convert-btn" type="button">Convert to EUR</button>
+            <p id="converted-total"></p>
+            <p id="conversion-error" class="error-message" role="alert"></p>
+          </article>
+
+          <article class="summary-card">
+            <h3>Expense Count</h3>
+            <p id="expense-count">0 expenses shown</p>
+          </article>
+
+          <article class="summary-card">
+            <h3>Category Totals</h3>
+            <ul id="category-totals"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="expenses-section">
+        <h2 id="expenses-heading">Expenses</h2>
+
+        <p id="empty-message" class="empty-message">
+          No expenses to show yet.
+        </p>
+
+        <table class="expenses-table">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Category</th>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody id="expense-table-body">
+            <!-- JavaScript renders expense rows here -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>CSCI 39548 Assignment 2 - Soogeun Kim</p>
+    </footer>
+  </body>
+</html>
